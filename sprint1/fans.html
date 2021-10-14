@@ -6,14 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fans page</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        article {
+            border-bottom: 1px solid grey;
+        }
+        article>footer{
+            border-top:1px solid lightcyan;
+            display:flex;
+            justify-content: space-between;
+        }
+        article>footer>span{
+            font-weight: bold;
+            font-size:1.2em;
+        }
+    </style>
 </head>
 <body>
     <header>
+        <div class=navbar>
         <nav>
         <ul class="menu">
-            <li><a href="/">Main</a></li>
-            <li><a href="/news/">News</a></li>
-            <li class="dropdown"><a href="/career/">Career (&darr;)</a>
+            <li><a href="/webuiclub/sprint1/index.html">Main</a></li>
+            <li><a href="#">News</a></li>
+            <li class="dropdown">Matches (&darr;)
 <ul class="dropdown-content ">
 <li><a href="#">2004–2007 Early career</a></li>
 <li><a href="#">2008 Summer Olympics</a></li>
@@ -22,23 +37,43 @@
 
 </ul>
 </li>                  
-            <li  class="active"><a href="/fans.html">fans</a></li>
-            <li><a href="/contacts.html">contact</a></li>
-            <li><a href="/admin.html">admin</a></li>
+            <li  class="active"><a href="#">fans</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">admin</a></li>
             
         </ul>
         </nav>
         <div class="logo">usein.com</div>
+    </div>
     </header>
 
     <main>
-        
-        <p>1. Create another additional Fans-page of the website and go to it from the main page.</p>
-        <hr/>
-        <p>2. Add several parallel animations to the page. For example: showing the site name on top of the header image + logo rotation.</p>
-        <hr/>
-        <p>3. Add animation to menu items. The animation should work when you hover the cursor.</p>
-        <hr/>
+        <article>
+            <p>1. Create another additional Fans-page of the website and go to it from the main page.</p>
+            <footer>
+                <time datetime="2020-05-16 19:00">May 16</time>
+                <span>Author 2</span>
+              </footer>
+        </article>
+        <article>
+        <p>2. Add several parallel animations to the page. For example: showing the site name on top of the header image + logo rotation.<br>
+            <strong>Animation: running Usain Bolt on the Footer.</strong>
+        </p>
+        <footer>
+            <time datetime="2020-05-16 19:00">May 16</time>
+            <span>Author 1</span>
+          </footer>
+    </article>
+<article>
+        <p>3. Add animation to menu items. The animation should work when you hover the cursor.
+        <br>
+        <strong>Transition  on hover menu items and Submit button</strong>
+        </p>
+        <footer>
+            <time datetime="2020-05-16 19:00">May 16</time>
+            <span>Author 2</span>
+          </footer>
+    </article>
         <form action="#">
 
             <label>Name
@@ -52,7 +87,7 @@
         
           </form>
     </main>
-       
+   <div id='run-usein'></div>    
         
 <footer>
     privacy | terms of use | copyright
