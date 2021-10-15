@@ -47,10 +47,38 @@
             
         
     </header>
-
+<style>
+    main {
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:space-around;
+    }
+    article{
+        width:300px;
+        border: 1px solid;
+        height:30em;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+    article img{
+        width: 298px; 
+        height: 12em; 
+        object-fit: cover;
+        
+    }
+    article>*:not(:first-child){
+        padding:0.5em;
+    }
+    main > h1 {
+            width:100%;
+            text-align: center;
+    }
+</style>
     <main>
-
-        <article>
+        <h1>Last news (excluded from flex width 100%)</h1>
+        <article onclick="location.href('#')">
+            <img src="admin.png">
             <h2>Guinness World Records</h2>
             <p>Bolt claimed 19 Guinness World Records, and, after Michael Phelps, holds the second highest number of
                 accumulative Guinness World Records for total number of accomplishments and victories in sports.</p>
@@ -65,6 +93,25 @@
             </ol>
         </article>
         <article>
+            <img src="fans.png">
+            <h2>Infection with COVID-19</h2>
+            <p>On 24 August 2020, Bolt tested positive for COVID-19 and subsequently went into self-isolation in his
+                home. He said that he was asymptomatic. Bolt had himself tested on 22 August, the day after celebrating
+                his 34th birthday with a party where guests did not wear face masks. Coincidentally, the guests at the
+                party danced in an open field to Jamaican reggae singer Koffee's song "Lockdown"</p>
+
+        </article>
+        <article>
+            <img src="news.png">
+            <h2>Infection with COVID-19</h2>
+            <p>On 24 August 2020, Bolt tested positive for COVID-19 and subsequently went into self-isolation in his
+                home. He said that he was asymptomatic. Bolt had himself tested on 22 August, the day after celebrating
+                his 34th birthday with a party where guests did not wear face masks. Coincidentally, the guests at the
+                party danced in an open field to Jamaican reggae singer Koffee's song "Lockdown"</p>
+
+        </article>
+        <article>
+            <img src="matches.png">
             <h2>Infection with COVID-19</h2>
             <p>On 24 August 2020, Bolt tested positive for COVID-19 and subsequently went into self-isolation in his
                 home. He said that he was asymptomatic. Bolt had himself tested on 22 August, the day after celebrating

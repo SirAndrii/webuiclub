@@ -29,8 +29,6 @@ body {
 
 main {
     margin: 40px auto 0;
-
-    max-width: 800px;
     line-height: 1.4em;
     min-height: calc(100vh - var(--footer-height) - var(--header-height));
 }
