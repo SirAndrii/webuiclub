@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <ul id="list">
+          <li>User1</li>
+          <li>User2</li>
+          <li>User3</li>
+          <li>User4</li>
+          <li>User5</li>
+      </ul>
+      <script>
+          // First Method
+         const arr=[]; 
+         let positions = [1,5,2,4,3].map(el => el-1);
+         let liArr1 = list.querySelectorAll('li');  
+
+         for (let i=0,n=liArr1.length; i<n; i++){
+             arr.push( liArr1[ positions[i] ].textContent )
+             
+         }
+         console.log( 'Output result: ' + arr.join(", ") );
+         
+         // Second Method - Christmas tree Algorithm
+         arr.length=0;
+         let liArr2=list.children;
+    
+         for (  let i=0, n = 0 , j = liArr2.length ;
+                i<liArr2.length;
+                i++)
+                {
+                    if (i%2==0){
+                        arr.push(liArr2[n].textContent);
+                        j--;
+                    }
+                    else {   
+                        arr.push(liArr2[j].textContent);
+                        n++;
+                    }
+                }
+         console.log( 'Output result: ' + arr.join(", ") );    
+         
+         arr.length=0;
+         let testArr=Array(25).fill("").map( (el,index) => el = index+1);
+                let str=""
+         for (  let i=0, n = 0 , j = testArr.length ;
+                i<testArr.length;
+                i++)
+                {
+                    if (i%2==0){
+                        
+                        str += Array(n).fill(" ").join("");
+                        str += testArr[n];
+                        j--;
+                        if ( (j-n-1)>=0){
+                            str += Array(j-n-1).fill("#").join("");
+                        }
+                        else {
+                            console.log(str);
+                        }
+                    }
+                    
+                    else {   
+                        str += testArr[j];
+                        n++;
+                        console.log(str);
+                        str="";
+                    }
+                    
+                }
+      </script>
+</body>
+</html>

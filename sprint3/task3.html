@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="Press me"
+        onclick="eventHandler(event)"
+        onmouseover="eventHandler(event)"
+        onmouseout="eventHandler(event)"
+    >
+    <div id=result></div>
+
+    <script>
+       /*  let button = document.querySelector("input[type=button]");
+       button.addEventListener("click", eventHandler);
+        button.addEventListener("mouseover", eventHandler);
+        button.addEventListener("mouseout", eventHandler);
+ */
+        function eventHandler(event) {
+            let message;
+            if (event.type == "click") {
+                message = "I was pressed!";
+                event.preventDefault();
+            }
+            if (event.type == "mouseover")
+                message = "Mouse on me!";
+            if (event.type == "mouseout")
+                message = "Mouse is not on me!";
+
+            let p = document.createElement('p');
+            p.innerText = message;
+
+            let divResult = document.getElementById('result');
+            divResult.append(p);
+        }
+    </script>
+</body>
+</html>

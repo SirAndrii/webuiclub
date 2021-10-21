@@ -74,7 +74,7 @@
             <span>Author 2</span>
           </footer>
     </article>
-        <form action="#">
+        <form action="#" id="addPost"> 
 
             <label>Name
                 <input type="text" name="username" placeholder="type your name">
@@ -83,10 +83,47 @@
             <label for="subject">Subject
                 <textarea name="subject" placeholder="Write something.." style="height:200px"></textarea>
             </label>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" onclick="sendText(event)">
         
           </form>
     </main>
+   
+        <script>
+            const main=document.querySelector('main');
+            
+            
+            
+            function sendText(event){
+                const baseForm= document.forms[0];
+                const formElements = document.forms[0].elements;
+                let login=formElements.username.value;
+                let text=formElements.subject.value;
+                event.preventDefault();
+                //validate inputs
+                if(login.trim().length>0 && text.trim().length>0)
+                {   
+                    const date = new Date();
+                    const newArticle=`                    <article>
+                        <p>${ login.trim() }</p>
+                        <footer>
+                        <time>${ date.toLocaleString('en-US',{month: 'long', day: 'numeric'}) }</time>
+                        <span>${ text.trim() }</span>
+                        </footer>
+                    </article>
+                    `;
+                    
+                    baseForm.insertAdjacentHTML("beforebegin",newArticle);
+                    
+                    login="";//This doesn't clean input work - why???
+                    console.log(login);
+                    formElements.username.value="";
+                    formElements.subject.value="";
+                }else{
+                    alert('put text in all fields!');
+                }
+            }
+
+        </script>
    <div id='run-usein'></div>    
         
 <footer>

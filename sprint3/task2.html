@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>I'am a big header!!!</h1>
+    <div id="myDiv">
+        <p>First paragraph</p>
+        <p>Second paragraph</p>
+        <p>Third paragraph</p>
+        <p>Fourth paragraph</p>
+    </div>
+    <ul id="myList">
+        <li>Make</li>
+        <li>me</li>
+        <li>horizontal!</li>
+    </ul>
+    <span>Make me invisible, please!</span>
+
+    <script>
+        console.time('Execution Time');
+        for (i=0;i<=20000;i++){
+        let cloneBody=document.body.cloneNode(true);
+        
+        cloneBody.querySelector('h1').style.backgroundColor="lightgreen";
+        /*cloneNode - can't work with getElementById, and can't copy styles*/
+        let pArr = cloneBody.querySelector('#myDiv').children;
+        pArr[0].style.fontWeight="bold";
+        pArr[1].style.color ="red";
+        pArr[2].style.textDecoration ="underline";
+        pArr[3].innerHTML= "<em>" +pArr[3].innerText+ "</em>";
+        
+        let ulElem = cloneBody.querySelector('#myList')
+        ulElem.style.listStyleType='none';
+        ulElem.style.display='flex';
+        ulElem.style.flexDirection =  'row';
+
+        cloneBody.getElementsByTagName('span')[0].style.display = "none";
+
+        document.body.innerHTML=cloneBody.innerHTML;
+    }
+        console.timeEnd('Execution Time');
+
+    console.log('//////method without clonning///////');
+        console.time('Execution Time');
+        for (i=0;i<=20000;i++){
+            document.querySelector('h1').style.backgroundColor="lightgreen";
+        
+        let pArr = myDiv.children;
+        pArr[0].style.fontWeight="bold";
+        pArr[1].style.color ="red";
+        pArr[2].style.textDecoration ="underline";
+        pArr[3].innerHTML= "<em>" +pArr[3].innerText+ "</em>";
+        
+        let liArr = document.getElementById('myList').children
+        for (let i=0, n=liArr.length; i<n; i++){
+        //!forEach can't itterate Collection!
+            liArr[i].style.listStyleType= "none";
+            if (i!=n-1)
+                liArr[i].style.float="left"; 
+        }
+
+        document.getElementsByTagName('span')[0].style.display = "none";
+    }
+        console.timeEnd('Execution Time');
+    </script>
+</body>
+</html>
