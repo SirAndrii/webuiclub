@@ -23,7 +23,7 @@
 
     <script>
         console.time('Execution Time');
-        for (i=0;i<=20000;i++){
+        for (i=0;i<=2000;i++){
         let cloneBody=document.body.cloneNode(true);
         
         cloneBody.querySelector('h1').style.backgroundColor="lightgreen";
@@ -47,7 +47,7 @@
 
     console.log('//////method without clonning///////');
         console.time('Execution Time');
-        for (i=0;i<=20000;i++){
+        for (i=0;i<=2000;i++){
             document.querySelector('h1').style.backgroundColor="lightgreen";
         
         let pArr = myDiv.children;
