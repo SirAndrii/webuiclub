@@ -23,8 +23,9 @@
 
     <script>
         console.time('Execution Time');
-        for (i=0;i<=2000;i++){
         let cloneBody=document.body.cloneNode(true);
+        for (i=0;i<=2000;i++){
+        
         
         cloneBody.querySelector('h1').style.backgroundColor="lightgreen";
         /*cloneNode - can't work with getElementById, and can't copy styles*/

@@ -106,7 +106,7 @@
                     const newArticle=`                    <article>
                         <p>${ login.trim() }</p>
                         <footer>
-                        <time>${ date.toLocaleString('en-US',{month: 'long', day: 'numeric'}) }</time>
+                        <time>${ date.toLocaleString('en-US',{month: 'long', day: 'numeric', year: 'numeric', hour:'2-digit', minute:'2-digit'}) }</time>
                         <span>${ text.trim() }</span>
                         </footer>
                     </article>
