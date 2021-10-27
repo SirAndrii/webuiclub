@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Workers: results in console</h1>
+</body>
+
+<script>
+    //Create a Worker class that will have a constructor that accepts the following properties: fullName (first and last name), dayRate (rate per day of work), workingDays (number of days worked).
+    class Worker {
+        constructor(fullName, dayRate, workingDays) {
+            this.fullName = fullName;
+            this.dayRate = dayRate;
+            this.workingDays = workingDays;
+        }
+        //1) the class must have a showSalary() method that will display the employee's salary. Salary is the product of the dayRate by the number of days worked workingDays.
+        showSalary() {
+            let salary = this.dayRate * this.workingDays;
+            //console.log(salary);
+            return salary;
+        }
+        //2) add a private experience field and assign it a value of 1.2 and use it as an additional multiplier when determining the salary - create the showSalaryWithExperience() method. Print the salary value with this coefficient.
+        #experience = 1.2;
+        showSalaryWithExperience() {
+            let newSalary = this.showSalary() * this.#experience;
+            //console.log(newSalary);
+            return newSalary;
+        }
+        //3) add getters and setters for the experience field. Set experience = 1.5 and display it.
+        get showExp() {
+            return this.#experience;
+        }
+        set setExp(value) {
+            this.#experience = value;
+        }
+        showData() {
+            let {
+                fullName: name,
+                showSalary: oldSalary,
+                showSalaryWithExperience: newSalary
+            } = this;
+            console.log(`
+            Name: ${name}, 
+            base salary: ${oldSalary.apply(this)}, 
+            salary with expierence: ${newSalary.apply(this)}
+        `);
+        }
+    }
+
+    const worker1 = new Worker("John Johnson", 20, 23);
+    console.log(worker1.fullName);
+    console.log(worker1.showSalary());
+    worker1.showData();
+    console.log("New experience: " + worker1.showExp);
+    console.log(worker1.showSalaryWithExperience());
+    //4) Derive salary value with new experience.
+    worker1.setExp = 1.5;
+    console.log("New experience: " + worker1.showExp);
+    console.log(worker1.showSalaryWithExperience());
+    worker1.showData();
+    //5) Create multiple instances of the class (workers) with different salaries as shown in the example below. 
+    const worker2 = new Worker("Tom Tomson", 48, 22);
+    worker2.showData();
+    worker2.setExp = 0.6;
+    worker2.showData();
+
+    const worker3 = new Worker("Andy Ander", 29, 23);
+    worker3.setExp = 1.3;
+    worker3.showData();
+
+    //Sort the salaries of the most experienced workers by growth and display the result in the format: worker_fullName: salary_value
+    let workerArray = [worker1, worker2, worker3];
+    workerArray.sort((a, b) => a.showSalaryWithExperience() - b.showSalaryWithExperience());
+    for (let worker of workerArray) {
+        const {
+            fullName,
+            showSalaryWithExperience: salary
+        } = worker;
+        console.log(fullName + ": " + salary.apply(worker));
+    }
+</script>
+
+</html>

@@ -95,7 +95,7 @@
             
             function sendText(event){
                 const baseForm= document.forms[0];
-                const formElements = document.forms[0].elements;
+                const formElements = document.forms[0].elements.username;
                 let login=formElements.username.value;
                 let text=formElements.subject.value;
                 event.preventDefault();
@@ -114,9 +114,10 @@
                     
                     baseForm.insertAdjacentHTML("beforebegin",newArticle);
                     
-                    login="";//This doesn't clean input work - why???
+                    login.value="";//This doesn't clean input work - why???
                     console.log(login);
-                    formElements.username.value="";
+                    //formElements.username.value.value="";
+                    //formElements.username.value="";
                     formElements.subject.value="";
                 }else{
                     alert('put text in all fields!');

@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>TASK 1: result in console </h1>
+    <pre></pre>
+</body>
+</html>
+<script>
+    class Student {
+        constructor(fullName, direction){
+            this.fullName = fullName;
+            this._direction = direction;//test without "_"
+        }
+        showFullName(){
+            let seperatedName= this.fullName.split(" ");
+            return {name: seperatedName[0], surname: seperatedName[1]};
+        }
+        nameIncludes(data){
+            return Object.values(this.showFullName()).includes(data);
+        }
+        static studentBuilder(){
+            return new Student('Ihor Kohut','qc');
+        }
+        get direction(){
+            return this._direction;
+        }
+        set direction(value){
+            this._direction = value;
+        }
+    }
+
+    const stud1 = new Student( 'Ivan Petrenko','web');
+    const stud2 = new Student( 'Sergiy Koval','python');
+    const stud3 = Student.studentBuilder();
+
+    stud1.nameIncludes('Ivan');   // true
+    stud1.nameIncludes('Denysenko'); // false
+
+    let testData = `
+        new Student( 'Ivan Petrenko','web') => ${JSON.stringify(stud1)}
+        new Student( 'Sergiy Koval','python') => ${JSON.stringify(stud2)}
+        Student.studentBuilder() => ${JSON.stringify(stud3)}
+        stud1.nameIncludes('Ivan') => ${stud1.nameIncludes('Ivan')}
+        stud1.nameIncludes('Denysenko') => ${stud1.nameIncludes('Denysenko')}
+    `;
+    document.querySelector('pre').append(testData);
+</script>
+

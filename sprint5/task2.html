@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 2</h1>
+    <pre></pre>
+</body>
+</html>
+<script>
+    class Person {
+        constructor(name,surname){
+            this.name=name;
+            this.surname=surname;
+        }
+        showFullName(){
+            const {name,surname} = this;
+            return (name +" "+surname);
+        }
+    }
+
+    class Student extends Person {
+        constructor(name,surname,year){
+            super(name,surname);
+            this.year=year;
+        }
+        showFullName(value){
+            const {name,surname}=this;
+            return (surname +" "+ name + " " + value);
+        }
+        showCourse(){
+            return ( (new Date()).getFullYear() - +this.year );
+        }
+    }
+
+    const stud1 = new Student("Petro", "Petrenko", 2017);
+    console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych
+    console.log("Current course: " + stud1.showCourse()); //Current course: 4
+
+
+    let testData = `
+        new Student("Petro", "Petrenko", 2017); => ${JSON.stringify(stud1)}
+        stud1.showFullName("Petrovych") => ${stud1.showFullName("Petrovych")}
+        stud1.showCourse() => ${stud1.showCourse()}
+    `;
+    document.querySelector('pre').append(testData);
+    </script>
+
